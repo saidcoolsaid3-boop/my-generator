@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Генератор картинок</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #0f0f0f;
+            color: white;
+            padding: 50px;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+        }
+        input {
+            width: 300px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        img {
+            margin-top: 30px;
+            max-width: 90%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>✨ Мой генератор картинок ✨</h1>
+    <input type="text" id="prompt" placeholder="cat in space, robot, dragon...">
+    <button onclick="generate()">Сгенерировать</button>
+    <br>
+    <img id="result">
+    <script>
+        function generate() {
+            let prompt = document.getElementById('prompt').value;
+            if (!prompt) return;
+            let url = "https://image.pollinations.ai/prompt/" + encodeURIComponent(prompt);
+            document.getElementById('result').src = url;
+        }
+    </script>
+</body>
+</html>
